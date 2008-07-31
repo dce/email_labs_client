@@ -35,14 +35,14 @@ class EmailLabsClient
     end    
   end
   
-  def self.send_request(type, activity)
+  def self.send_request(request_type, activity)
     xml = Builder::XmlMarkup.new :target => (input = '')
     xml.instruct!
     xml.DATASET do
       xml.SITE_ID SITE_ID
       yield xml
     end
-    Net::HTTP.post_form(URI.parse(ENDPOINT), :type => type, :activity => activity, :input => input)
+    Net::HTTP.post_form(URI.parse(ENDPOINT), :type => request_type, :activity => activity, :input => input)
   end
 
 end
