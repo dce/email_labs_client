@@ -8,7 +8,7 @@ This program is a simple Ruby client for the [EmailLabs API][eml]. We're releasi
 Features
 --------
 
-We need to be able to add users to lists, and send email to individual users on our lists. We've defined a `method_missing` which handles methods of the formats `subscribe_user_to_[mailing]` and `send_[mailing]`. These methods reference the `MAILING_LISTS` class variable. Since it's so highly specialized, `method_missing` is deceptively unimportant; the protected methods are more universal, and more interesting.
+We need to be able to add users to a list with different demographic information, and send email to individual users on our list. We've defined a `method_missing` which handles methods of the formats `subscribe_user_to_[mailing]` and `send_[mailing]`. These methods reference the `MAILING_LISTS` class variable. Since it's so highly specialized, `method_missing` is deceptively unimportant; the protected methods are more universal, and more interesting.
 
 The main method is `send_request`, which takes a type and an activity (see the API documentation for more information), as well as a block where the request body is defined. Built on top of that are `subscribe_user` and `send_email`, which behave as expected. By looking through these three methods, you should be able to get a good idea of how to interact with the EmailLabs API.
 
